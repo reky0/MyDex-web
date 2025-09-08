@@ -1,0 +1,87 @@
+a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+.listing {
+  background: var(--accent-color);
+  border-radius: 30px;
+  padding: 1em;
+  padding-bottom: 30px;
+
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform .1s ease, box-shadow .1s ease, z-index .1s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  z-index: 1;
+}
+
+.listing:hover {
+  box-shadow: 0 100px 20px rgba(0, 0, 0, 0.5);
+}
+
+.listing.active {
+  z-index: 999;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+}
+
+.listing-heading {
+  color: var(--font-color);
+  text-align: center;
+  font-size: 100%;
+}
+
+.listing-photo {
+  /* height: 250px; */
+  width: 100%;
+  object-fit: contain;
+}
+
+.listing-location {
+  padding: 10px 20px 20px 20px;
+}
+
+.listing-location::before {
+  content: url("/assets/location-pin.svg") / "";
+}
+
+section.listing a {
+  padding-left: 20px;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+section.listing a::after {
+  content: "\203A";
+  margin-left: 5px;
+}
+
+.types {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  justify-content: center;
+  align-content: center;
+  gap: .5rem; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.type {
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+  padding: 5%;
+  margin: .5rem;
+
+  text-align: center;
+  white-space: nowrap;
+  font-weight: bold;
+
+  font-size: small;
+}

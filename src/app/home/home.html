@@ -1,0 +1,44 @@
+<!-- <section class="main-content"
+  infiniteScroll
+  [infiniteScrollDistance]="5"
+  [infiniteScrollThrottle]="100"
+  (scrolled)="onScroll()"
+> -->
+<section class="main-content">
+  <!--  SEARCH BAR -->
+  <div class="main-search-wrapper">
+    <input type="text" class="main-search" placeholder="Search Pokémon..." />
+  </div>
+
+  <!-- PAGINATOR  -->
+  <div class="paginator-wrapper">
+    <span class="paginator-prev" (click)="loadContent(-1)">
+      <svg class="paginator-img" xmlns="http://www.w3.org/3000/svg" width="30" height="30" viewBox="0 0 24 24">
+        <path d="M15 18L9 12L15 6" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+      Prev
+    </span>
+
+    <span> Page {{ page }} </span>
+
+    <span class="paginator paginator-next" (click)="loadContent(1)">
+      Next
+      <svg class="paginator-img" xmlns="http://www.w3.org/3000/svg" width="30" height="30" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </span>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-wrapper">
+    <section class="results">
+      @for (pokemon of pokemonList; track $index) {
+        <app-pokemon [pokemon]="pokemon"></app-pokemon>
+      }
+
+      <!-- <app-pokemon [pokemon]="pokemon"></app-pokemon> -->
+    </section>
+  </div>
+</section>

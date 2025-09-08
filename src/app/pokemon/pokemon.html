@@ -1,0 +1,18 @@
+<a [routerLink]="['/pokemon.details', pokemon().id]">
+  <section #cardRef class="listing" [style.backgroundColor]="'var(--type-' + pokemon().type1 + ')'">
+    <img class="listing-photo" [src]="pokemon().image" alt="{{ pokemon().name }} icon" />
+    <h2 class="listing-heading">#{{ pokemon().id }} {{ pokemon().name }}</h2>
+
+    <div class="types">
+      <span class="type" [style.backgroundColor]="'var(--type-' + pokemon().type1 + ')'">
+        {{ pokemon().type1 }}
+      </span>
+
+      @if (pokemon().type2 != '') {
+        <span class="type" [style.backgroundColor]="'var(--type-' + pokemon().type2 + ')'">
+          {{ pokemon().type2 }}
+        </span>
+      }
+    </div>
+  </section>
+</a>

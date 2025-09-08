@@ -1,0 +1,53 @@
+<!-- PAGINATOR  -->
+<div class="paginator-wrapper">
+  <span class="paginator-prev" [routerLink]="['/pokemon.details', (pokemonId > 1 ? pokemonId-1 : 1)]">
+    <svg class="paginator-img" xmlns="http://www.w3.org/3000/svg" width="30" height="30" viewBox="0 0 24 24">
+      <path d="M15 18L9 12L15 6" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+    Prev
+  </span>
+
+  <!-- <span> Page {{ page }} </span> -->
+
+  <span class="paginator paginator-next" [routerLink]="['/pokemon.details', (pokemonId+1)]">
+    Next
+    <svg class="paginator-img" xmlns="http://www.w3.org/3000/svg" width="30" height="30" viewBox="0 0 24 24">
+      <path d="M9 6L15 12L9 18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </span>
+</div>
+
+@if (pokemonInfo) {
+<div class="details-container">
+  <div class="details-card">
+    <div class="pokemon-header">
+      <span class="pokemon-id">#{{ pokemonInfo.id }}</span>
+      <h1 class="pokemon-name">{{ pokemonInfo.name }}</h1>
+    </div>
+
+    <div class="pokemon-image">
+      <img [src]="pokemonInfo.image" [alt]="pokemonInfo.name + ' front default'" />
+    </div>
+
+    <div class="pokemon-types">
+      <span class="type-badge" [style.backgroundColor]="'var(--type-' + pokemonInfo.type1 + ')'">
+        {{ pokemonInfo.type1 }}
+      </span>
+
+      @if (pokemonInfo.type2 != '') {
+      <span class="type-badge" [style.backgroundColor]="'var(--type-' + pokemonInfo.type2 + ')'">
+        {{ pokemonInfo.type2 }}
+      </span>
+      }
+    </div>
+
+    <div class="pokemon-info">
+      <p><strong>Height:</strong> {{ pokemonInfo.height/10 }} m</p>
+      <p><strong>Weight:</strong> {{ pokemonInfo.weight/10 }} kg</p>
+      <p><strong>Base Experience:</strong> {{ pokemonInfo.base_experience }}</p>
+    </div>
+  </div>
+</div>
+}
